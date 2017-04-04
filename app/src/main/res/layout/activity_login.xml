@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#006BB9"
+    tools:context="com.example.forever.pmhma.LoginActivity">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/login_logo"
+        />
+
+    <EditText
+        android:id="@+id/loginEmail"
+        style="@style/edittextView"
+        android:hint="Enter your Email"
+        />
+    <EditText
+        android:id="@+id/loginPassword"
+        style="@style/edittextView"
+        android:hint="Enter your Password"
+        />
+    <Button
+        android:id="@+id/loginBtn"
+        style="@style/buttonStyle"
+        android:text="Login"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Account Yet ? You Can Sign Up."
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/signUpBtn"
+        style="@style/buttonStyle"
+        android:text="Sign Up"
+        />
+</LinearLayout>
