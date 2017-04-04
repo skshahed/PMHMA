@@ -21,22 +21,22 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
     public static final String DOC_APNMT_DATE = "apnmt_date";
     public static final String DOC_PHONE = "phone";
     public static final String DOC_EMAIL= "email";
-    public static final String CREATE_DOCTOR_TABLE = "create table" +DOCTOR_INFO_TABLE+"("+
-            DOC_ID+"integer primary key,"+
-            DOC_NAME+"text,"+
-            DOC_DETAILS+"text,"+
-            DOC_APNMT_DATE+"text,"+
-            DOC_PHONE+"text,"+
-            DOC_EMAIL+"text);";
+    public static final String CREATE_DOCTOR_TABLE = "create table "+DOCTOR_INFO_TABLE+"("+
+            DOC_ID+" integer primary key, "+
+            DOC_NAME+" text, "+
+            DOC_DETAILS+" text, "+
+            DOC_APNMT_DATE+" text, "+
+            DOC_PHONE+" text, "+
+            DOC_EMAIL+" text);";
 
     public static final String MEDICAL_HISTORY_TABLE = "history_table";
     public static final String MH_ID = "mh_id";
     public static final String DOC_MH_ID = "doc_id";
     public static final String MH_DATE = "apnmt_date";
-    public static final String CREATE_HISTORY_TABLE = "create table" +MEDICAL_HISTORY_TABLE+"("+
-            MH_ID+"integer primary key,"+
-            DOC_MH_ID+"integer,"+
-            MH_DATE+"text);";
+    public static final String CREATE_HISTORY_TABLE = "create table " +MEDICAL_HISTORY_TABLE+"("+
+            MH_ID+" integer primary key, "+
+            DOC_MH_ID+" integer, "+
+            MH_DATE+" text);";
 
     public DoctorDatabaseHelper(Context context) {
         super(context, DATABASE_NAME,  null, DATABASE_VERSION);
