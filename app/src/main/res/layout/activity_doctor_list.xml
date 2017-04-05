@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.roktobd.pmhma.DoctorListActivity">
+    tools:context="com.example.forever.pmhma.DoctorListActivity">
 
         <ListView
-            android:id="@+id/doctorlist"
+            android:id="@+id/doctorList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
         />
