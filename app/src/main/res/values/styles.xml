@@ -12,7 +12,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">25sp</item>
-        <item name="android:textColor">#FFFFFD</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">#15f2ac</item>
+        <item name="android:textColorHint">#FFFFFD</item>
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">20dp</item>
         <item name="android:layout_marginTop">20dp</item>

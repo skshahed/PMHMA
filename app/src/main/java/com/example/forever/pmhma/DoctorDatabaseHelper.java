@@ -21,7 +21,7 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
     public static final String DOC_APNMT_DATE = "apnmt_date";
     public static final String DOC_PHONE = "phone";
     public static final String DOC_EMAIL= "email";
-    public static final String CREATE_DOCTOR_TABLE = "create table "+DOCTOR_INFO_TABLE+"("+
+    public static final String CREATE_DOCTOR_TABLE = "create table " +DOCTOR_INFO_TABLE+"("+
             DOC_ID+" integer primary key, "+
             DOC_NAME+" text, "+
             DOC_DETAILS+" text, "+

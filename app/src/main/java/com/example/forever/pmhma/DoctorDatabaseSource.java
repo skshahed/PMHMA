@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class DoctorDatabaseSource {
     private DoctorDatabaseHelper doctorDatabaseHelper;
     private SQLiteDatabase sqLiteDatabase;
-    private DoctorList doctorList;
+    private Doctor doctor;
 
     public DoctorDatabaseSource(Context context) {
         doctorDatabaseHelper = new DoctorDatabaseHelper(context);
@@ -31,18 +31,18 @@ public class DoctorDatabaseSource {
 
     }
 
-    public boolean addDoctorInfo(DoctorList doctorList){
+    public boolean addDoctorInfo(Doctor doctor){
         this.open();
-        ContentValues newDoctor = new ContentValues();
-        newDoctor.put(DoctorDatabaseHelper.DOC_NAME,doctorList.getDocName());
-        newDoctor.put(DoctorDatabaseHelper.DOC_DETAILS,doctorList.getDocDetails());
-        newDoctor.put(DoctorDatabaseHelper.DOC_APNMT_DATE,doctorList.getDocApnmnt());
-        newDoctor.put(DoctorDatabaseHelper.DOC_PHONE,doctorList.getDocPhone());
-        newDoctor.put(DoctorDatabaseHelper.DOC_EMAIL,doctorList.getDocEmail());
-        long id = sqLiteDatabase.insert(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,null,newDoctor);
+        ContentValues values = new ContentValues();
+        values.put(DoctorDatabaseHelper.DOC_NAME, doctor.getDocName());
+        values.put(DoctorDatabaseHelper.DOC_DETAILS, doctor.getDocDetails());
+        values.put(DoctorDatabaseHelper.DOC_APNMT_DATE, doctor.getDocApnmnt());
+        values.put(DoctorDatabaseHelper.DOC_PHONE, doctor.getDocPhone());
+        values.put(DoctorDatabaseHelper.DOC_EMAIL, doctor.getDocEmail());
+        long id = sqLiteDatabase.insert(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,null,values);
 
         this.close();
-        if (id>0){
+        if (id > 0){
             return true;
         }
         else {
@@ -51,13 +51,13 @@ public class DoctorDatabaseSource {
 
     }
 
-    public ArrayList<DoctorList> getAllDoctor(){
-        ArrayList<DoctorList> doctors = new ArrayList<>();
+    public ArrayList<Doctor> getAllDoctor(){
+        ArrayList<Doctor> doctors = new ArrayList<>();
         this.open();
         Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,null,null,null,null,null,null);
         cursor.moveToFirst();
         if (cursor != null && cursor.getCount() > 0){
-            for (int i=0;i < cursor.getCount();i++){
+            for (int i = 0;i < cursor.getCount();i++){
                 int id = cursor.getInt(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_ID));
                 String docName = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_NAME));
                 String docDetails = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_DETAILS));
@@ -65,8 +65,8 @@ public class DoctorDatabaseSource {
                 String docPhone = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_PHONE));
                 String docEmail = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_EMAIL));
 
-                doctorList = new DoctorList(id,docName,docDetails,docApnmnt,docPhone,docEmail);
-                doctors.add(doctorList);
+                doctor = new Doctor(id,docName,docDetails,docApnmnt,docPhone,docEmail);
+                doctors.add(doctor);
                 cursor.moveToNext();
             }
         }
