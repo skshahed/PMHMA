@@ -2,6 +2,7 @@ package com.example.forever.pmhma;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText passwordET;
     private Button showUserBtn;
     private TextView showEmailTV, showPassTV;
+    private DoctorDatabaseHelper doctorDatabaseHelper;
+    private SQLiteDatabase sqLiteDatabase;
    // private TextView showEmailTV,showPasTV;
     private SharedPreferences userPreference;
     private SharedPreferences.Editor editor;
@@ -43,13 +46,29 @@ public class SignUpActivity extends AppCompatActivity {
         String name = nameET.getText().toString();
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-        userAuthentication.saveUser(name,email,password);
 
-        if(editor.commit()==true){
-            Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this,DoctorListActivity.class));
-        }else{
-            Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+        if (name.isEmpty()){
+            nameET.setError("Please Enter Your Name");
+        }
+        if (email.isEmpty()){
+            emailET.setError("Please Enter Your Email");
+        }
+        if (password.isEmpty()){
+            passwordET.setError("Please Enter the Password");
+        }
+
+        else {
+            userAuthentication.saveUser(name, email, password);
+
+            if (editor.commit() == true) {
+                Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
+               // String dbName = doctorDatabaseHelper.getDatabaseName();
+                //doctorDatabaseHelper.onCreate(sqLiteDatabase);
+
+                startActivity(new Intent(this, DoctorListActivity.class));
+            } else {
+                Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }

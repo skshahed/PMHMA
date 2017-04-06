@@ -1,7 +1,9 @@
 package com.example.forever.pmhma;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -23,5 +25,9 @@ public class DoctorListActivity extends AppCompatActivity {
 
         doctorAdapter = new DoctorAdapter(this, doctors);
         mListView.setAdapter(doctorAdapter);
+    }
+
+    public void goAddDoctor(View view) {
+        startActivity(new Intent(this,MainActivity.class));
     }
 }
