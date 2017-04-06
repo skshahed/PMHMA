@@ -1,5 +1,6 @@
 package com.example.forever.pmhma;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -43,6 +45,12 @@ public class SignUpActivity extends AppCompatActivity {
         String password = passwordET.getText().toString();
         userAuthentication.saveUser(name,email,password);
 
+        if(editor.commit()==true){
+            Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,DoctorListActivity.class));
+        }else{
+            Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

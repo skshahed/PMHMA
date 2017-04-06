@@ -32,8 +32,11 @@ public class UserAuthentication {
         editor.putString(USER_PASSWORD,password);
         editor.commit();
     }
-    public String getEmail(){
+    public String getName(){
         return sharedPreferences.getString(USER_EMAIL,DEFAULT_MSG);
+    }
+    public String getEmail(){
+        return sharedPreferences.getString(USER_NAME,DEFAULT_MSG);
     }
     public String getPassword(){
         return sharedPreferences.getString(USER_PASSWORD,DEFAULT_MSG);

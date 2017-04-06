@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText appoinmentET;
     private EditText phoneET;
     private EditText emailET;
-    private DoctorAdapter doctorAdapter;
 
     private Doctor doctor;
     private DoctorDatabaseSource doctorDatabaseSource;
@@ -58,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
             boolean status  =   doctorDatabaseSource.addDoctorInfo(doctor);
             if(status){
                 Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,DoctorListActivity.class);
-                startActivity(intent);
-               // startActivity(new Intent(MainActivity.this,DoctorListActivity.class));
+                startActivity(new Intent(MainActivity.this,DoctorListActivity.class));
             }else{
                 Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
             }
@@ -68,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addRegistration(View view) {
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
     }
+
+
 }

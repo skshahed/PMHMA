@@ -33,6 +33,7 @@
         android:id="@+id/loginBtn"
         style="@style/buttonStyle"
         android:text="Login"
+        android:onClick="justLogin"
         />
     <TextView
         android:layout_width="wrap_content"
