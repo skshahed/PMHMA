@@ -32,6 +32,7 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
         TextView nameTv;
         TextView phoneTV;
         TextView emailTV;
+        Button detailsBtn;
     }
 
     @NonNull
@@ -39,7 +40,7 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
     public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
         LayoutInflater inflater =   (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        ViewHolder holder;
+        final ViewHolder holder;
         if(convertView==null) {
             holder          =   new ViewHolder();
 
@@ -47,6 +48,7 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
             holder.nameTv   = (TextView) convertView.findViewById(R.id.doctorName);
             holder.phoneTV  = (TextView) convertView.findViewById(R.id.doctorPhoneNumber);
             holder.emailTV  = (TextView) convertView.findViewById(R.id.doctorEmail);
+            holder.detailsBtn  = (Button) convertView.findViewById(R.id.docDetails);
 
             convertView.setTag(holder);
         }else{
@@ -57,6 +59,27 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
         holder.phoneTV.setText(doctorAdapters.get(position).getDocPhone());
         holder.emailTV.setText(doctorAdapters.get(position).getDocEmail());
 
+        //final View finalConvertView = convertView;
+        holder.detailsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String docName = holder.nameTv.getText().toString();
+                String docSpecialist = doctorAdapters.get(position).getDocDetails();
+                String docApoint = doctorAdapters.get(position).getDocApnmnt().toString();
+                String docPhone = holder.phoneTV.getText().toString();
+                String docEmail = holder.emailTV.getText().toString();
+
+
+                parent.getContext().startActivity(new Intent(parent.getContext(),DoctorDetailsActivity.class)
+                .putExtra("doctorName",docName)
+                .putExtra("doctorPhone",docPhone)
+                .putExtra("doctorEmail",docEmail)
+                .putExtra("doctorApoint",docApoint)
+                .putExtra("doctorSpecial",docSpecialist));
+                /*convertView.startActivity(new Intent(DoctorAdapter.this,DoctorDetailsActivity.class)
+                        .putExtra("doctorObj",doctors));*/
+            }
+        });
         return convertView;
     }
 }

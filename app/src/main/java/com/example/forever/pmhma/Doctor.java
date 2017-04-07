@@ -1,10 +1,12 @@
 package com.example.forever.pmhma;
 
+import java.io.Serializable;
+
 /**
  * Created by Forever on 4/6/2017.
  */
 
-public class Doctor {
+public class Doctor implements Serializable{
     private int docId;
     private String docName;
     private String docDetails;
@@ -21,13 +23,13 @@ public class Doctor {
         this.docEmail = docEmail;
     }
 
-    /*public Doctor(String docName, String docDetails, String docApnmnt, String docPhone, String docEmail) {
+    public Doctor(String docName, String docDetails, String docApnmnt, String docPhone, String docEmail) {
         this.docName = docName;
         this.docDetails = docDetails;
         this.docApnmnt = docApnmnt;
         this.docPhone = docPhone;
         this.docEmail = docEmail;
-    }*/
+    }
 
     public int getDocId() {
         return docId;

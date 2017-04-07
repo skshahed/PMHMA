@@ -38,4 +38,14 @@
         android:fontFamily="sans-serif"
         android:textStyle="normal"
         />
+
+    <Button
+        android:id="@+id/docDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"/>
 </RelativeLayout>

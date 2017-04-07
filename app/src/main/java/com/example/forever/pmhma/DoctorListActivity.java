@@ -26,14 +26,14 @@ public class DoctorListActivity extends AppCompatActivity {
 
         doctorAdapter = new DoctorAdapter(this, doctors);
         mListView.setAdapter(doctorAdapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int rowId= doctors.get(position).getDocId();
+                //int rowId= doctors.get(position).getDocId();
                 startActivity(new Intent(DoctorListActivity.this,DoctorDetailsActivity.class)
-                .putExtra("id",rowId));
+                .putExtra("doctorObj",doctors));
             }
-        });
+        });*/
     }
 
     public void goAddDoctor(View view) {
