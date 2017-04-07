@@ -21,14 +21,21 @@ public class Doctor {
         this.docEmail = docEmail;
     }
 
-    public Doctor(String docName, String docDetails, String docApnmnt, String docPhone, String docEmail) {
+    /*public Doctor(String docName, String docDetails, String docApnmnt, String docPhone, String docEmail) {
         this.docName = docName;
         this.docDetails = docDetails;
         this.docApnmnt = docApnmnt;
         this.docPhone = docPhone;
         this.docEmail = docEmail;
+    }*/
+
+    public int getDocId() {
+        return docId;
     }
 
+    public void setDocId(int docId) {
+        this.docId = docId;
+    }
 
     public String getDocName() {
         return docName;

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff3a1"
+    android:gravity="center"
+    tools:context="com.example.forever.pmhma.DoctorDetailsActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="#111976"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Doctor Details Information"
+        android:textColor="#c41ba7"
+        android:fontFamily="cursive"
+        android:textSize="30sp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="#111976"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_gravity="left">
+
+        <TextView
+            style="@style/doctorDetailsText"
+            android:text="Dr. Name :"
+            />
+        <TextView
+            style="@style/doctorDetailsText"
+            android:text="Specialist :"
+            />
+        <TextView
+            style="@style/doctorDetailsText"
+            android:text="Meet Date :"
+            />
+        <TextView
+            style="@style/doctorDetailsText"
+            android:text="Phone No :"
+            />
+        <TextView
+        style="@style/doctorDetailsText"
+        android:text="Email :"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_gravity="left">
+
+        <TextView
+            android:id="@+id/showName"
+            style="@style/doctorDetailsText"
+            android:text="Doctor Name Here"
+            android:paddingLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/showSpecialist"
+            style="@style/doctorDetailsText"
+            android:text="Doctor Specialit On"
+            android:paddingLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/showDate"
+            style="@style/doctorDetailsText"
+            android:text="Patient Appoint Date"
+            android:paddingLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/showPhone"
+            style="@style/doctorDetailsText"
+            android:text="Doctor Phone Number"
+            android:paddingLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/showEmail"
+            style="@style/doctorDetailsText"
+            android:text="Doctor Email Address"
+            android:paddingLeft="10dp"
+            />
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        style="@style/doctorBtn"
+        android:text="Add Prescription"
+        android:layout_marginTop="20dp"
+        android:onClick="prescription"/>
+
+    <Button
+        style="@style/doctorBtn"
+        android:text="View Prescription"
+        android:onClick="prescription"/>
+
+
+</LinearLayout>
