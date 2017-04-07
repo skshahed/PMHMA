@@ -18,20 +18,20 @@
 
     <EditText
         android:id="@+id/loginEmail"
-        style="@style/edittextView"
+        style="@style/loginEditText"
         android:inputType="textEmailAddress"
         android:hint="Enter your Email"
         />
     <EditText
         android:id="@+id/loginPassword"
-        style="@style/edittextView"
+        style="@style/loginEditText"
         android:inputType="textPassword"
         android:hint="Enter your Password"
 
         />
     <Button
         android:id="@+id/loginBtn"
-        style="@style/buttonStyle"
+        style="@style/loginBtn"
         android:text="Login"
         android:onClick="justLogin"
         />
@@ -45,7 +45,7 @@
 
     <Button
         android:id="@+id/signUpBtn"
-        style="@style/buttonStyle"
+        style="@style/loginBtn"
         android:text="Sign Up"
         android:onClick="goSignUp"
         />

@@ -45,15 +45,23 @@ public class LoginActivity extends AppCompatActivity {
        // emailET.setText(userAuthentication.getEmail());
         String savedEmail = userAuthentication.getEmail();
         String savedPass = userAuthentication.getPassword();
-        if (Objects.equals(userEmail, savedEmail) && Objects.equals(userPass, savedPass)) {
 
-            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, DoctorListActivity.class));
+        if (userEmail.isEmpty()){
+            emailET.setError("Login Email Needed !!!");
+        }
+        if (userPass.isEmpty()){
+            passwordET.setError("Login Password Needed !!!");
         }
         else {
-            Toast.makeText(this, "Couldn't find you !!!", Toast.LENGTH_SHORT).show();
-        }
-        //showPassTV.setText(userAuthentication.getPassword());
+            if (Objects.equals(userEmail, savedEmail) && Objects.equals(userPass, savedPass)) {
 
+                //Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, DoctorListActivity.class));
+            } else {
+                Toast.makeText(this, "Couldn't find you !!!", Toast.LENGTH_SHORT).show();
+            }
+            //showPassTV.setText(userAuthentication.getPassword());
+
+        }
     }
 }

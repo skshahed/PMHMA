@@ -27,64 +27,33 @@
                 android:src="@drawable/doctor"/>
             <EditText
                 android:id="@+id/doctorName"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
+                style="@style/addDocEditText"
                 android:hint="Enter Doctor name"
-                android:background="#fff"
-                android:padding="5dp"
-                android:textSize="18sp"
-                android:textColor="#000"/>
+                />
 
             <EditText
                 android:id="@+id/doctorDetails"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
+                style="@style/addDocEditText"
                 android:hint="Enter Doctor Details"
-                android:layout_marginTop="5dp"
-                android:background="#fff"
-                android:padding="5dp"
-                android:textSize="18sp"
-                android:textColor="#000"/>
+                />
 
             <EditText
                 android:id="@+id/doctorAppoinment"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
+                style="@style/addDocEditText"
                 android:hint="Enter Appoinment"
-                android:layout_marginTop="5dp"
-                android:background="#fff"
-                android:padding="5dp"
-                android:textSize="18sp"
-                android:textColor="#000"/>
+                />
 
 
             <EditText
                 android:id="@+id/doctorPhone"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
+                style="@style/addDocEditText"
                 android:hint="Enter Phone Number"
-                android:layout_marginTop="5dp"
-                android:background="#fff"
-                android:padding="5dp"
-                android:textSize="18sp"
-                android:textColor="#000"
                 android:inputType="phone"/>
 
             <EditText
                 android:id="@+id/doctorEmail"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
+                style="@style/addDocEditText"
                 android:hint="Enter Email"
-                android:layout_marginTop="5dp"
-                android:background="#fff"
-                android:padding="5dp"
-                android:textSize="18sp"
-                android:textColor="#000"
                 android:inputType="textEmailAddress"/>
 
             <Button
@@ -95,11 +64,4 @@
                 android:text="Add Doctor"
                 android:onClick="addDoctor"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="#c6e69b"
-                android:text="Registration"
-                android:onClick="addRegistration"/>
 </LinearLayout>

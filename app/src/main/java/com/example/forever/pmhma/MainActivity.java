@@ -36,22 +36,22 @@ public class MainActivity extends AppCompatActivity {
         String phone        =   phoneET.getText().toString();
         String email        =   emailET.getText().toString();
         if(name.isEmpty()){
-            nameET.setError("This field must not be required !");
+            nameET.setError("This field must not be Empty !");
         }
         if(details.isEmpty()){
-            detailsET.setError("This field must not be required !");
+            detailsET.setError("This field must not be Empty !");
         }
 
         if(appointment.isEmpty()){
-            appoinmentET.setError("This field must not be required !");
+            appoinmentET.setError("This field must not be Empty !");
         }
 
         if(phone.isEmpty()){
-            phoneET.setError("This field must not be required !");
+            phoneET.setError("This field must not be Empty !");
         }
 
         if(email.isEmpty()){
-            emailET.setError("This field must not be required !");
+            emailET.setError("This field must not be Empty !");
         }else{
             doctor =   new Doctor(name,details,appointment,phone,email);
             boolean status  =   doctorDatabaseSource.addDoctorInfo(doctor);
@@ -63,10 +63,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-    public void addRegistration(View view) {
-        startActivity(new Intent(MainActivity.this,LoginActivity.class));
-    }
-
-
 }
