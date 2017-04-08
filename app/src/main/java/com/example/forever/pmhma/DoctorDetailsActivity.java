@@ -2,6 +2,7 @@ package com.example.forever.pmhma;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class DoctorDetailsActivity extends AppCompatActivity {
@@ -34,6 +35,13 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         docPhoneTV.setText(docPhone);
         docEmailTV.setText(docEmail);
 
+
+    }
+
+    public void editDoctor(View view) {
+    }
+
+    public void deleteDoctor(View view) {
 
     }
 }

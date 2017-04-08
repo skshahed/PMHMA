@@ -116,5 +116,14 @@
         android:text="View Prescription"
         android:onClick="prescription"/>
 
+    <Button
+        style="@style/doctorBtn"
+        android:text="Update"
+        android:onClick="editDoctor"/>
+
+    <Button
+        style="@style/doctorBtn"
+        android:text="Delete"
+        android:onClick="deleteDoctor"/>
 
 </LinearLayout>
