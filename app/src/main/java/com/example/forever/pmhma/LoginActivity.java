@@ -53,10 +53,10 @@ public class LoginActivity extends AppCompatActivity {
             passwordET.setError("Login Password Needed !!!");
         }
         else {
-            if (Objects.equals(userEmail, savedEmail) && Objects.equals(userPass, savedPass)) {
+            if (userEmail.equals(savedEmail) && userPass.equals(savedPass)) {
 
                 //Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, DoctorListActivity.class));
+                startActivity(new Intent(LoginActivity.this, DoctorListActivity.class));
             } else {
                 Toast.makeText(this, "Couldn't find you !!!", Toast.LENGTH_SHORT).show();
             }
