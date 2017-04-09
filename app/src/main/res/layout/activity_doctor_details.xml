@@ -109,7 +109,7 @@
         style="@style/doctorBtn"
         android:text="Add Prescription"
         android:layout_marginTop="20dp"
-        android:onClick="prescription"/>
+        android:onClick="addPrescription"/>
 
     <Button
         style="@style/doctorBtn"

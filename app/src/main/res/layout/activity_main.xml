@@ -38,11 +38,18 @@
                 android:hint="Enter Doctor Details"
                 />
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/doctorAppoinment"
                 style="@style/addDocEditText"
                 android:hint="Enter Appoinment"
-                />
+                />-->
+
+            <Button
+                android:id="@+id/doctorAppoinment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Set date"
+                android:onClick="showDate"/>
 
 
             <EditText
@@ -58,6 +65,7 @@
                 android:inputType="textEmailAddress"/>
 
             <Button
+                android:id="@+id/btnAdd"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"

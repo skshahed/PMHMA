@@ -2,6 +2,7 @@ package com.example.forever.pmhma;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -74,5 +75,36 @@ public class DoctorDatabaseSource {
         this.close();
         return doctors;
     }
+
+    public boolean editDoctor(Doctor doctor,int rowId){
+        this.open();
+        ContentValues values = new ContentValues();
+        values.put(DoctorDatabaseHelper.DOC_NAME, doctor.getDocName());
+        values.put(DoctorDatabaseHelper.DOC_DETAILS, doctor.getDocDetails());
+        values.put(DoctorDatabaseHelper.DOC_APNMT_DATE, doctor.getDocApnmnt());
+        values.put(DoctorDatabaseHelper.DOC_PHONE, doctor.getDocPhone());
+        values.put(DoctorDatabaseHelper.DOC_EMAIL, doctor.getDocEmail());
+        int  updateId = sqLiteDatabase.update(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,
+                values,doctorDatabaseHelper.DOC_ID+" = ?",new String[]{Integer.toString(rowId)});
+        if(updateId > 0){
+            return  true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean deleteDoctor(int rowId){
+        this.open();
+        int deleteId    =   sqLiteDatabase.delete(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,
+                DoctorDatabaseHelper.DOC_ID+"=?",new String[]{Integer.toString(rowId)});
+        this.close();
+        if(deleteId>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 }
 

@@ -56,7 +56,7 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
         }
 
         holder.nameTv.setText(doctorAdapters.get(position).getDocName());
-        holder.phoneTV.setText(doctorAdapters.get(position).getDocPhone());
+        holder.phoneTV.setText(doctorAdapters.get(position).getDocDetails());
         holder.emailTV.setText(doctorAdapters.get(position).getDocEmail());
 
         //final View finalConvertView = convertView;
@@ -64,18 +64,20 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
             @Override
             public void onClick(View v) {
                 String docName = holder.nameTv.getText().toString();
-                String docSpecialist = doctorAdapters.get(position).getDocDetails();
-                String docApoint = doctorAdapters.get(position).getDocApnmnt().toString();
-                String docPhone = holder.phoneTV.getText().toString();
-                String docEmail = holder.emailTV.getText().toString();
+                String docSpecialist= doctorAdapters.get(position).getDocDetails();
+                String docApoint    = doctorAdapters.get(position).getDocApnmnt().toString();
+                int     rowId       = doctorAdapters.get(position).getDocId();
+                String docPhone     = holder.phoneTV.getText().toString();
+                String docEmail     = holder.emailTV.getText().toString();
 
 
                 parent.getContext().startActivity(new Intent(parent.getContext(),DoctorDetailsActivity.class)
+                .putExtra("id",rowId)
                 .putExtra("doctorName",docName)
                 .putExtra("doctorPhone",docPhone)
                 .putExtra("doctorEmail",docEmail)
                 .putExtra("doctorApoint",docApoint)
-                .putExtra("doctorSpecial",docSpecialist));
+                .putExtra("docSpecialist",docSpecialist));
                 /*convertView.startActivity(new Intent(DoctorAdapter.this,DoctorDetailsActivity.class)
                         .putExtra("doctorObj",doctors));*/
             }
