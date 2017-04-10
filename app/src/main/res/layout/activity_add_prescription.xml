@@ -37,6 +37,13 @@
         android:hint="Add Doctor Details:"
 
         />
+
+    <EditText
+        android:id="@+id/showImgePath"
+        style="@style/addDocEditText"
+        android:hint="Show image path"
+
+        />
     <ImageButton
             android:id="@+id/presImageButton"
             android:layout_width="200dp"
@@ -60,7 +67,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="Add Medical History"
-        android:onClick="add_medical_history" />
+        android:onClick="addMedicalHistory" />
 
 
 

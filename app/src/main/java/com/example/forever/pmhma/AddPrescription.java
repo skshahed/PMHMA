@@ -20,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -36,6 +37,7 @@ public class AddPrescription extends AppCompatActivity {
     String mCurrentPhotoPath;
     static final int REQUEST_TAKE_PHOTO = 1;
     private ImageButton imageView;
+    private TextView showImgePath;
     private File image;
     private String imageFileName;
 
@@ -45,6 +47,8 @@ public class AddPrescription extends AppCompatActivity {
     private Button prestionDateBTN;
     private int year, month, day, hour, minute;
     private Calendar calendar;
+    private MedicalHistory medicalHistory;
+    private DoctorDatabaseSource doctorDatabaseSource;
 //    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 
@@ -58,6 +62,7 @@ public class AddPrescription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_prescription);
         imageView = (ImageButton) findViewById(R.id.presImageButton);
+        showImgePath = (TextView) findViewById(R.id.showImgePath);
 
         doctorNameET = (EditText) findViewById(R.id.doctorNameET);
         doctorDeatilsET = (EditText) findViewById(R.id.doctorDeatilsET);
@@ -115,6 +120,7 @@ public class AddPrescription extends AppCompatActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
+        showImgePath.setText(mCurrentPhotoPath);
         return image;
     }
 
@@ -148,8 +154,45 @@ public class AddPrescription extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");*/
             Bitmap mBitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
             imageView.setImageBitmap(mBitmap);
+           // showImgePath.setText(imageFileName);
             Toast.makeText(this, imageFileName, Toast.LENGTH_SHORT).show();
 
+        }
+    }
+
+    public void addMedicalHistory(View view) {
+        String imagePath      =   showImgePath.getText().toString();
+        String addDate  =   prestionDateBTN.getText().toString();
+
+        if(imagePath.isEmpty()){
+            showImgePath.setError("Please use your Camera !");
+        }
+        if(addDate.isEmpty()){
+            prestionDateBTN.setError("Set Date !");
+        }
+
+        else{
+            // it condition for update
+            /*if(rowId > 0){
+                doctor =   new Doctor(name,details,appointment,phone,email);
+                boolean status  = doctorDatabaseSource.editDoctor(doctor,rowId);
+                if(status){
+                    Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this,DoctorListActivity.class));
+                }else{
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+
+            }else{   */         //it condition for add
+                medicalHistory =   new MedicalHistory(addDate,imagePath);
+                boolean status  =   doctorDatabaseSource.addMedicalHistory(medicalHistory);
+                if(status){
+                    Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddPrescription.this,MedicalListActivity.class));
+                }else{
+                    Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+                }
+           // }
         }
     }
 }
