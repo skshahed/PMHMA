@@ -31,9 +31,9 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String MEDICAL_HISTORY_TABLE = "history_table";
     public static final String MH_ID = "mh_id";
-    public static final String DOC_MH_ID = "doc_id";
+    public static final String DOC_MH_ID = "mh_doc_id";
     public static final String MH_IMAGE_NAME = "image_name";
-    public static final String MH_DATE = "apnmt_date";
+    public static final String MH_DATE = "mh_apnmt_date";
     public static final String CREATE_HISTORY_TABLE = "create table " +MEDICAL_HISTORY_TABLE+"("+
             MH_ID+" integer primary key, "+
             DOC_MH_ID+" integer, "+
@@ -58,4 +58,10 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+   /* public void deleteDatabase(){
+
+        SQLiteDatabase db = this.getWritableDatabase(); //get database
+        db.execSQL("DELETE FROM tablename"); //delete all rows in a table
+        db.close();
+    }*/
 }

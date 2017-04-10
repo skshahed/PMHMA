@@ -22,7 +22,6 @@
         android:textSize="20sp"
         android:padding="15dp"
         android:textColor="#000"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         />
     <EditText
@@ -53,13 +52,13 @@
         />
 
     <ImageButton
-            android:id="@+id/presImageButton"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/camera"
-            android:layout_gravity="center"
-            />
+        android:id="@+id/presImageButton"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/camera"
+        android:layout_gravity="center"
+        />
 
     <Button
         android:id="@+id/prestionDate"

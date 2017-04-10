@@ -16,11 +16,11 @@ public class MedicalListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.medical_history_layout);
+        setContentView(R.layout.activity_medical_list);
 
         mListView = (ListView) findViewById(R.id.medicalList);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
-        medicalHistories = doctorDatabaseSource.getAllMedical();
+        medicalHistories = doctorDatabaseSource.getAllHistory();
 
         medicalHistoryAdapter = new MedicalHistoryAdapter(this, medicalHistories);
         mListView.setAdapter(medicalHistoryAdapter);

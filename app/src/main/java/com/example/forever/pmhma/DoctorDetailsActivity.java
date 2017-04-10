@@ -88,7 +88,10 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
                 .putExtra("id",rowId)
                 .putExtra("doctorName",docName)
-                .putExtra("docSpecialist",docSpecialist)
-                .putExtra("doctorEmail",doctorEmail));
+                .putExtra("docSpecialist",docSpecialist));
+    }
+
+    public void viewPrescription(View view) {
+        startActivity(new Intent(DoctorDetailsActivity.this,MedicalListActivity.class));
     }
 }

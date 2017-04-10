@@ -16,6 +16,7 @@ public class DoctorDatabaseSource {
     private DoctorDatabaseHelper doctorDatabaseHelper;
     private SQLiteDatabase sqLiteDatabase;
     private Doctor doctor;
+    private MedicalHistory medicalHistory;
 
     public DoctorDatabaseSource(Context context) {
         doctorDatabaseHelper = new DoctorDatabaseHelper(context);
@@ -107,25 +108,28 @@ public class DoctorDatabaseSource {
 
 
 
-    public ArrayList<MedicalHistory> getAllMedical(){
-        ArrayList<MedicalHistory> histories = new ArrayList<>();
+    public ArrayList<MedicalHistory> getAllHistory(){
+        ArrayList<MedicalHistory> medicalHistories = new ArrayList<>();
         this.open();
         Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,null,null,null,null,null);
         cursor.moveToFirst();
         if (cursor != null && cursor.getCount() > 0){
             for (int i = 0;i < cursor.getCount();i++){
-                int id = cursor.getInt(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_ID));
-                String docID = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_ID));
-                String date  = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_DATE));
+                int id = cursor.getInt(cursor.getColumnIndex(DoctorDatabaseHelper.MH_ID));
+                //String docName = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_NAME));
+                //String docDetails = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_DETAILS));
+                String prescribeDate = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_DATE));
+                String imagePath = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_IMAGE_NAME));
+               // String docEmail = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_EMAIL));
 
-                MedicalHistory history = new MedicalHistory(id,docID,date);
-                histories.add(history);
+                medicalHistory = new MedicalHistory(id,prescribeDate,imagePath);
+                medicalHistories.add(medicalHistory);
                 cursor.moveToNext();
             }
         }
         cursor.close();
         this.close();
-        return histories;
+        return medicalHistories;
     }
 
 
@@ -133,9 +137,11 @@ public class DoctorDatabaseSource {
         this.open();
         ContentValues values = new ContentValues();
         //values.put(DoctorDatabaseHelper.DOC_MH_ID, medicalHistory.getAddDate());
-        values.put(DoctorDatabaseHelper.MH_DATE, medicalHistory.getAddDate());
-        values.put(DoctorDatabaseHelper.MH_IMAGE_NAME, medicalHistory.getImageName());
+
+
         values.put(DoctorDatabaseHelper.DOC_MH_ID, medicalHistory.getDoctorId());
+        values.put(DoctorDatabaseHelper.MH_IMAGE_NAME, medicalHistory.getImageName());
+        values.put(DoctorDatabaseHelper.MH_DATE, medicalHistory.getAddDate());
         long id = sqLiteDatabase.insert(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,values);
 
         this.close();
@@ -148,9 +154,4 @@ public class DoctorDatabaseSource {
 
     }
 
-
-
-
-
 }
-

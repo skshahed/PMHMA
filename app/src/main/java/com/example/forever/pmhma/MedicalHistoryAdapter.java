@@ -3,6 +3,7 @@ package com.example.forever.pmhma;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -24,9 +26,9 @@ public class MedicalHistoryAdapter extends ArrayAdapter<MedicalHistory>{
     private Context context;
     private ArrayList<MedicalHistory> medicalHistories;
 
-    public MedicalHistoryAdapter(@NonNull Context context, ArrayList<MedicalHistory> medicalHistories) {
+    public MedicalHistoryAdapter(@NonNull Context context,ArrayList<MedicalHistory> medicalHistories ) {
         super(context, R.layout.medical_history_layout, medicalHistories);
-        this.context    =   context;
+        this.context = context;
         this.medicalHistories = medicalHistories;
     }
 
@@ -58,12 +60,21 @@ public class MedicalHistoryAdapter extends ArrayAdapter<MedicalHistory>{
             holder = (ViewHolder) convertView.getTag();
         }
 
+        String imagePathName = medicalHistories.get(position).getImageName();
+        File imgFile = new  File(imagePathName);
+
+        if(imgFile.exists()){
+
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            holder.medicalImageIV.setImageBitmap(myBitmap);
+
+        }
         //holder.medicalImageIV.setImageResource(medicalHistories.get(position).getImageName());
         //holder.doctorNameTV.setText(medicalHistories.get(position).getmHistoryId());
         holder.addDateTV.setText(medicalHistories.get(position).getAddDate());
 
         //final View finalConvertView = convertView;
-        holder.detailsBtn.setOnClickListener(new View.OnClickListener() {
+        /*holder.detailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String doctorName = holder.doctorNameTV.getText().toString();
@@ -80,10 +91,10 @@ public class MedicalHistoryAdapter extends ArrayAdapter<MedicalHistory>{
                 .putExtra("id",rowId)
                 .putExtra("doctorName",doctorName)
                 .putExtra("prescriptionDate",addDate));
-                /*convertView.startActivity(new Intent(DoctorAdapter.this,DoctorDetailsActivity.class)
-                        .putExtra("doctorObj",doctors));*/
+                *//*convertView.startActivity(new Intent(DoctorAdapter.this,DoctorDetailsActivity.class)
+                        .putExtra("doctorObj",doctors));*//*
             }
-        });
+        });*/
         return convertView;
     }
 }

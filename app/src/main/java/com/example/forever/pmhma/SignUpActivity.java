@@ -37,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
         showPassTV = (TextView) findViewById(R.id.showPass);
 
         userAuthentication = new UserAuthentication(this);
+        doctorDatabaseHelper = new DoctorDatabaseHelper(this);
 
         userPreference = getSharedPreferences("User Authenticate",MODE_PRIVATE);
         editor = userPreference.edit();
@@ -64,6 +65,8 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
                // String dbName = doctorDatabaseHelper.getDatabaseName();
                 //doctorDatabaseHelper.onCreate(sqLiteDatabase);
+                //doctorDatabaseHelper.onUpgrade(sqLiteDatabase db,1,1);
+              //  doctorDatabaseHelper.deleteDatabase();
 
                 startActivity(new Intent(this, DoctorListActivity.class));
             } else {

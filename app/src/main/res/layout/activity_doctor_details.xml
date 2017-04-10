@@ -114,7 +114,7 @@
     <Button
         style="@style/doctorBtn"
         android:text="View Prescription"
-        android:onClick="prescription"/>
+        android:onClick="viewPrescription"/>
 
     <Button
         style="@style/doctorBtn"
