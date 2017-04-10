@@ -106,5 +106,23 @@ public class DoctorDatabaseSource {
     }
 
 
+    public boolean addMedicalHistory(){
+        this.open();
+        ContentValues values = new ContentValues();
+        values.put(DoctorDatabaseHelper.DOC_MH_ID, doctor.getDocDetails());
+        values.put(DoctorDatabaseHelper.MH_DATE, doctor.getDocApnmnt());
+        long id = sqLiteDatabase.insert(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,values);
+
+        this.close();
+        if (id > 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+
 }
 

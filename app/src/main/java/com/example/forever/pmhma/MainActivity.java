@@ -3,19 +3,21 @@ package com.example.forever.pmhma;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
+//import android.icu.util.Calendar;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 
 import java.util.Locale;
+import java.util.Calendar;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText detailsET;
     //private EditText appoinmentET;
     private Button appoinmentET;
-    private int year,month,day,hour,minute;
+    private int year,month,day;
     private Calendar calendar;
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     private EditText phoneET;
     private EditText emailET;
@@ -49,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
         year          = calendar.get(Calendar.YEAR);
         month         = calendar.get(Calendar.MONTH);
         day           = calendar.get(Calendar.DAY_OF_MONTH);
+
+        calendar = Calendar.getInstance(Locale.getDefault());
+        year          = calendar.get(Calendar.YEAR);
+        month         = calendar.get(Calendar.MONTH);
+        day           = calendar.get(Calendar.DAY_OF_MONTH);
+
         phoneET       = (EditText) findViewById(R.id.doctorPhone);
         emailET       = (EditText) findViewById(R.id.doctorEmail);
         btnAdd        = (Button) findViewById(R.id.btnAdd);

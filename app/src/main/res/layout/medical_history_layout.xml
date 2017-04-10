@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/prescriptionImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/doctorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doctor  Name"
+        android:textColor="#FFC300"
+        android:textSize="24sp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/prescriptionImage"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView
+        android:id="@+id/addDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prescription Add Date"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_below="@id/doctorName"
+        android:layout_alignStart="@id/doctorName"
+        android:layout_alignLeft="@id/doctorName"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
+        />
+
+    <Button
+        android:id="@+id/docDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>
