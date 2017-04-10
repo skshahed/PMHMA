@@ -8,6 +8,9 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -47,25 +50,21 @@ public class MainActivity extends AppCompatActivity {
         nameET        = (EditText) findViewById(R.id.doctorName);
         detailsET     = (EditText) findViewById(R.id.doctorDetails);
         appoinmentET  = (Button) findViewById(R.id.doctorAppoinment);
+        phoneET       = (EditText) findViewById(R.id.doctorPhone);
+        emailET       = (EditText) findViewById(R.id.doctorEmail);
+
         calendar      = Calendar.getInstance(Locale.getDefault());
         year          = calendar.get(Calendar.YEAR);
         month         = calendar.get(Calendar.MONTH);
         day           = calendar.get(Calendar.DAY_OF_MONTH);
 
-        calendar = Calendar.getInstance(Locale.getDefault());
-        year          = calendar.get(Calendar.YEAR);
-        month         = calendar.get(Calendar.MONTH);
-        day           = calendar.get(Calendar.DAY_OF_MONTH);
-
-        phoneET       = (EditText) findViewById(R.id.doctorPhone);
-        emailET       = (EditText) findViewById(R.id.doctorEmail);
         btnAdd        = (Button) findViewById(R.id.btnAdd);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
 
         // pass data for edit
         docName         = getIntent().getStringExtra("doctorName");
         docSpecialist   = getIntent().getStringExtra("docSpecialist");
-        docApoint       = getIntent().getStringExtra("docApoint");
+        docApoint       = getIntent().getStringExtra("doctorApoint");
         doctorPhone     = getIntent().getStringExtra("doctorPhone");
         doctorEmail     = getIntent().getStringExtra("doctorEmail");
         rowId           = getIntent().getIntExtra("id",0);
@@ -79,6 +78,22 @@ public class MainActivity extends AppCompatActivity {
         if(rowId > 0){
             btnAdd.setText("Update");
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.only_logout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent loginscreen=new Intent(this,LoginActivity.class);
+        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(loginscreen);
+        this.finish();
+        return super.onOptionsItemSelected(item);
     }
 
     public void addDoctor(View view) {
