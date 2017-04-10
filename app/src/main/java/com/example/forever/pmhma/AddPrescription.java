@@ -43,10 +43,16 @@ public class AddPrescription extends AppCompatActivity {
 
     private EditText doctorNameET;
     private EditText doctorDeatilsET;
+    private EditText doctorIDET;
+
 
     private Button prestionDateBTN;
+
     private int year, month, day, hour, minute;
     private Calendar calendar;
+
+    private Button addBtn;
+
     private MedicalHistory medicalHistory;
     private DoctorDatabaseSource doctorDatabaseSource;
 //    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -62,16 +68,19 @@ public class AddPrescription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_prescription);
         imageView = (ImageButton) findViewById(R.id.presImageButton);
+        doctorDatabaseSource = new DoctorDatabaseSource(this);
         showImgePath = (TextView) findViewById(R.id.showImgePath);
 
         doctorNameET = (EditText) findViewById(R.id.doctorNameET);
         doctorDeatilsET = (EditText) findViewById(R.id.doctorDeatilsET);
+        doctorIDET = (EditText) findViewById(R.id.docId);
 
         prestionDateBTN = (Button) findViewById(R.id.prestionDate);
         calendar = Calendar.getInstance(Locale.getDefault());
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
+        addBtn = (Button) findViewById(R.id.addMedicalBtn);
 
         // pass data for edit
         docName = getIntent().getStringExtra("doctorName");
@@ -81,6 +90,7 @@ public class AddPrescription extends AppCompatActivity {
         //set for data update
         doctorNameET.setText(docName);
         doctorDeatilsET.setText(docSpecialist);
+        doctorIDET.setText(""+rowId);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +173,7 @@ public class AddPrescription extends AppCompatActivity {
     public void addMedicalHistory(View view) {
         String imagePath      =   showImgePath.getText().toString();
         String addDate  =   prestionDateBTN.getText().toString();
+        String addId  =   doctorIDET.getText().toString();
 
         if(imagePath.isEmpty()){
             showImgePath.setError("Please use your Camera !");
@@ -184,8 +195,9 @@ public class AddPrescription extends AppCompatActivity {
                 }
 
             }else{   */         //it condition for add
-                medicalHistory =   new MedicalHistory(addDate,imagePath);
-                boolean status  =   doctorDatabaseSource.addMedicalHistory(medicalHistory);
+               //MedicalHistory  medicalHistory =   new MedicalHistory(addDate,imagePath);
+                MedicalHistory medicalHistory = new MedicalHistory(addDate,imagePath,rowId);
+                boolean status  =   doctorDatabaseSource.addHistory(medicalHistory);
                 if(status){
                     Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(AddPrescription.this,MedicalListActivity.class));

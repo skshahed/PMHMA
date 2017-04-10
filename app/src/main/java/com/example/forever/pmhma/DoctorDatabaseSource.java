@@ -106,11 +106,36 @@ public class DoctorDatabaseSource {
     }
 
 
-    public boolean addMedicalHistory(){
+
+    public ArrayList<MedicalHistory> getAllMedical(){
+        ArrayList<MedicalHistory> histories = new ArrayList<>();
+        this.open();
+        Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,null,null,null,null,null);
+        cursor.moveToFirst();
+        if (cursor != null && cursor.getCount() > 0){
+            for (int i = 0;i < cursor.getCount();i++){
+                int id = cursor.getInt(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_ID));
+                String docID = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_ID));
+                String date  = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_DATE));
+
+                MedicalHistory history = new MedicalHistory(id,docID,date);
+                histories.add(history);
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
+        this.close();
+        return histories;
+    }
+
+
+    public boolean addHistory(MedicalHistory medicalHistory){
         this.open();
         ContentValues values = new ContentValues();
-        values.put(DoctorDatabaseHelper.DOC_MH_ID, doctor.getDocDetails());
-        values.put(DoctorDatabaseHelper.MH_DATE, doctor.getDocApnmnt());
+        //values.put(DoctorDatabaseHelper.DOC_MH_ID, medicalHistory.getAddDate());
+        values.put(DoctorDatabaseHelper.MH_DATE, medicalHistory.getAddDate());
+        values.put(DoctorDatabaseHelper.MH_IMAGE_NAME, medicalHistory.getImageName());
+        values.put(DoctorDatabaseHelper.DOC_MH_ID, medicalHistory.getDoctorId());
         long id = sqLiteDatabase.insert(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,values);
 
         this.close();
@@ -122,6 +147,9 @@ public class DoctorDatabaseSource {
         }
 
     }
+
+
+
 
 
 }
