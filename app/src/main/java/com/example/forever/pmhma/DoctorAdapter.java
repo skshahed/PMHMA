@@ -56,7 +56,7 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
         }
 
         holder.nameTv.setText(doctorAdapters.get(position).getDocName());
-        holder.phoneTV.setText(doctorAdapters.get(position).getDocDetails());
+        holder.phoneTV.setText(doctorAdapters.get(position).getDocPhone());
         holder.emailTV.setText(doctorAdapters.get(position).getDocEmail());
 
         //final View finalConvertView = convertView;

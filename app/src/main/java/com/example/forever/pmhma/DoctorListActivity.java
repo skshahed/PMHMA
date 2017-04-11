@@ -56,6 +56,6 @@ public class DoctorListActivity extends AppCompatActivity {
     }
 
     public void goAddDoctor(View view) {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(DoctorListActivity.this,AddDoctorActivity.class));
     }
 }

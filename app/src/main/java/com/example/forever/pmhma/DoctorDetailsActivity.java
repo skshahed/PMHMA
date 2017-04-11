@@ -112,7 +112,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                 break;
             case R.id.menu_update:
                 startActivity(new Intent(DoctorDetailsActivity.this,
-                        MainActivity.class)
+                        AddDoctorActivity.class)
                         .putExtra("id",rowId)
                         .putExtra("doctorName",docName)
                         .putExtra("docSpecialist",docSpecialist)

@@ -53,15 +53,19 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exits"+CREATE_DOCTOR_TABLE);
-        db.execSQL("drop table if exits"+CREATE_HISTORY_TABLE);
+        db.execSQL("drop table if exits"+DOCTOR_INFO_TABLE);
+        db.execSQL("drop table if exits"+MEDICAL_HISTORY_TABLE);
         onCreate(db);
 
     }
-   /* public void deleteDatabase(){
+    public void clearDatabase(){
 
         SQLiteDatabase db = this.getWritableDatabase(); //get database
-        db.execSQL("DELETE FROM tablename"); //delete all rows in a table
+        //db.execSQL("DELETE FROM "+ DOCTOR_INFO_TABLE+""); //delete all rows in a table
+        //db.execSQL("drop table if exits"+DOCTOR_INFO_TABLE);
+        //db.execSQL("drop table if exits"+MEDICAL_HISTORY_TABLE);
+        db.delete(DOCTOR_INFO_TABLE,null,null);
+        db.delete(MEDICAL_HISTORY_TABLE,null,null);
         db.close();
-    }*/
+    }
 }

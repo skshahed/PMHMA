@@ -44,9 +44,9 @@ public class AddPrescription extends AppCompatActivity {
     private File image;
     private String imageFileName;
 
-    private EditText doctorNameET;
-    private EditText doctorDeatilsET;
-    private EditText doctorIDET;
+    private TextView doctorNameET;
+    private TextView doctorDeatilsET;
+   // private EditText doctorIDET;
 
 
     private Button prestionDateBTN;
@@ -74,9 +74,9 @@ public class AddPrescription extends AppCompatActivity {
         doctorDatabaseSource = new DoctorDatabaseSource(this);
         showImgePathTV = (TextView) findViewById(R.id.showImgePath);
 
-        doctorNameET = (EditText) findViewById(R.id.doctorNameET);
-        doctorDeatilsET = (EditText) findViewById(R.id.doctorDeatilsET);
-        doctorIDET = (EditText) findViewById(R.id.docId);
+        doctorNameET = (TextView) findViewById(R.id.doctorNameET);
+        doctorDeatilsET = (TextView) findViewById(R.id.doctorDeatilsET);
+       // doctorIDET = (EditText) findViewById(R.id.docId);
 
         prestionDateBTN = (Button) findViewById(R.id.prestionDate);
         calendar = Calendar.getInstance(Locale.getDefault());
@@ -93,7 +93,7 @@ public class AddPrescription extends AppCompatActivity {
         //set for data update
         doctorNameET.setText(docName);
         doctorDeatilsET.setText(docSpecialist);
-        doctorIDET.setText(""+rowId);
+        //doctorIDET.setText(""+rowId);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

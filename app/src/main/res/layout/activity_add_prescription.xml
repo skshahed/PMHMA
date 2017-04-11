@@ -24,32 +24,35 @@
         android:textColor="#000"
         android:layout_marginTop="10dp"
         />
-    <EditText
+    <TextView
         android:id="@+id/doctorNameET"
         android:hint="Add Doctor Name"
         style="@style/addDocEditText"
 
         />
-    <EditText
+    <TextView
         android:id="@+id/doctorDeatilsET"
         style="@style/addDocEditText"
-        android:hint="Add Doctor Details:"
+        android:hint="Add Doctor Details"
 
         />
 
-    <EditText
+    <TextView
         android:id="@+id/showImgePath"
         style="@style/addDocEditText"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:maxLines="3"
         android:hint="Show image path"
 
         />
 
-    <EditText
+   <!-- <EditText
         android:id="@+id/docId"
         style="@style/addDocEditText"
         android:hint="Show  ID"
 
-        />
+        />-->
 
     <ImageButton
         android:id="@+id/presImageButton"
