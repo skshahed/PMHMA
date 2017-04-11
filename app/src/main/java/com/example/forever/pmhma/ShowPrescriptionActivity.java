@@ -53,7 +53,7 @@ public class ShowPrescriptionActivity extends AppCompatActivity {
                         boolean status = doctorDatabaseSource.deletePrescription(rowId);
                         if(status){
                             Toast.makeText(ShowPrescriptionActivity.this, "Prescription Deleted", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(ShowPrescriptionActivity.this,MedicalListActivity.class));
+                            startActivity(new Intent(ShowPrescriptionActivity.this,DoctorListActivity.class));
                         }else{
                             Toast.makeText(ShowPrescriptionActivity.this, "Couldn't Delete", Toast.LENGTH_SHORT).show();
                         }

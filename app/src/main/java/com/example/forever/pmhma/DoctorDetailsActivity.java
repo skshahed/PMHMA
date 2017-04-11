@@ -104,7 +104,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     public void viewPrescription(View view) {
        // medicalHistory.setDoctorId(rowId);
         //doctorDatabaseSource.getDoctorPrescription(rowId);
-        startActivity(new Intent(DoctorDetailsActivity.this,MedicalListActivity.class));
+        startActivity(new Intent(DoctorDetailsActivity.this,MedicalListActivity.class)
+        .putExtra("docId",rowId));
     }
 
     @Override

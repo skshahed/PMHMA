@@ -20,16 +20,22 @@ public class MedicalListActivity extends AppCompatActivity {
     private MedicalHistoryAdapter medicalHistoryAdapter;
     private ArrayList<MedicalHistory> medicalHistories;
     private DoctorDatabaseSource doctorDatabaseSource;
+    private int doctorId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medical_list);
+
+        doctorId = getIntent().getIntExtra("docId",0);
+
         TextView emptyText = (TextView) findViewById(R.id.emptyText);
         mListView = (ListView) findViewById(R.id.medicalList);
         mListView.setEmptyView(emptyText);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
-        medicalHistories = doctorDatabaseSource.getAllHistory();
+        //medicalHistories = doctorDatabaseSource.getAllHistory();
+
+        medicalHistories = doctorDatabaseSource.getDoctorPrescription(doctorId);
 
         medicalHistoryAdapter = new MedicalHistoryAdapter(this, medicalHistories);
         mListView.setAdapter(medicalHistoryAdapter);

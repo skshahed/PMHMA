@@ -132,11 +132,11 @@ public class DoctorDatabaseSource {
         return medicalHistories;
     }
 
-    public ArrayList<MedicalHistory> getDoctorPrescription(){
+    public ArrayList<MedicalHistory> getDoctorPrescription(int docId){
         ArrayList<MedicalHistory> medicalHistories = new ArrayList<>();
         this.open();
        // int doctorId = medicalHistory.getDoctorId();
-        int doctorId = 2;
+        int doctorId = docId;
         /*Cursor cursor = sqLiteDatabase.rawQuery("select "+DoctorDatabaseHelper.DOC_MH_ID+" from "+DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE+
                         " where " +DoctorDatabaseHelper.DOC_MH_ID+" = "+1 ,null);*/
 
