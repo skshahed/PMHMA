@@ -229,7 +229,9 @@ public class AddPrescription extends AppCompatActivity {
             boolean status  =   doctorDatabaseSource.addHistory(medicalHistory);
             if(status){
                 Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddPrescription.this,DoctorListActivity.class));
+                this.finish();
+                startActivity(new Intent(AddPrescription.this,MedicalListActivity.class)
+                .putExtra("docId",rowId));
             }else{
                 Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
             }

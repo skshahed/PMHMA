@@ -26,9 +26,11 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".DoctorDetailsActivity" />
-        <activity android:name=".AddPrescription" />
+        <activity android:name=".AddPrescription"
+             />
         <activity android:name=".MedicalListActivity" />
-        <activity android:name=".AddDoctorActivity" />
+        <activity android:name=".AddDoctorActivity"
+            android:noHistory="true" />
         <activity android:name=".ShowPrescriptionActivity"></activity>
     </application>
 
