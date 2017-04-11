@@ -77,16 +77,24 @@ public class AddDoctorActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.only_logout, menu);
+        inflater.inflate(R.menu.home_logout, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent loginscreen=new Intent(this,LoginActivity.class);
-        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginscreen);
-        this.finish();
+        switch (item.getItemId()){
+            case R.id.home:
+                startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
+                break;
+            case R.id.logout:
+                Intent loginscreen=new Intent(this,LoginActivity.class);
+                loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(loginscreen);
+                this.finish();
+                break;
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

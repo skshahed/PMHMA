@@ -132,6 +132,31 @@ public class DoctorDatabaseSource {
         return medicalHistories;
     }
 
+    public ArrayList<MedicalHistory> getDoctorPrescription(){
+        ArrayList<MedicalHistory> medicalHistories = new ArrayList<>();
+        this.open();
+
+        Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,null,null,null,null,null);
+        cursor.moveToFirst();
+        if (cursor != null && cursor.getCount() > 0){
+            for (int i = 0;i < cursor.getCount();i++){
+                int id = cursor.getInt(cursor.getColumnIndex(DoctorDatabaseHelper.MH_ID));
+                //String docName = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_NAME));
+                //String docDetails = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_DETAILS));
+                String prescribeDate = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_DATE));
+                String imagePath = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_IMAGE_NAME));
+                // String docEmail = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_EMAIL));
+
+                medicalHistory = new MedicalHistory(id,prescribeDate,imagePath);
+                medicalHistories.add(medicalHistory);
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
+        this.close();
+        return medicalHistories;
+    }
+
 
     public boolean addHistory(MedicalHistory medicalHistory){
         this.open();
@@ -152,6 +177,18 @@ public class DoctorDatabaseSource {
             return false;
         }
 
+    }
+
+    public boolean deletePrescription(int rowId){
+        this.open();
+        int deleteId    =   sqLiteDatabase.delete(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,
+                DoctorDatabaseHelper.MH_ID+"=?",new String[]{Integer.toString(rowId)});
+        this.close();
+        if(deleteId>0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

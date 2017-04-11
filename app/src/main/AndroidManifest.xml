@@ -28,7 +28,8 @@
         <activity android:name=".DoctorDetailsActivity" />
         <activity android:name=".AddPrescription" />
         <activity android:name=".MedicalListActivity" />
-        <activity android:name=".AddDoctorActivity"></activity>
+        <activity android:name=".AddDoctorActivity" />
+        <activity android:name=".ShowPrescriptionActivity"></activity>
     </application>
 
 </manifest>

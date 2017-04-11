@@ -39,7 +39,7 @@
         android:id="@+id/docDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Details"
+        android:text="View"
         android:textAllCaps="false"
         android:textSize="20dp"
         android:layout_marginTop="5dp"

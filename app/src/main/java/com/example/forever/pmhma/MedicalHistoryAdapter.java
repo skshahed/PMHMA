@@ -74,27 +74,19 @@ public class MedicalHistoryAdapter extends ArrayAdapter<MedicalHistory>{
         holder.addDateTV.setText(medicalHistories.get(position).getAddDate());
 
         //final View finalConvertView = convertView;
-        /*holder.detailsBtn.setOnClickListener(new View.OnClickListener() {
+        holder.detailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String doctorName = holder.doctorNameTV.getText().toString();
-                String addDate    = medicalHistories.get(position).getAddDate().toString();
                 int     rowId     = medicalHistories.get(position).getmHistoryId();
-
-               // Intent i = new Intent(parent.getContext(),MedicalListActivity.class);
-                //i.putExtra("ebookImage",ebookImage);
                 holder.medicalImageIV.buildDrawingCache();
                 Bitmap image= holder.medicalImageIV.getDrawingCache();
 
 
-                parent.getContext().startActivity(new Intent(parent.getContext(),MedicalListActivity.class)
-                .putExtra("id",rowId)
-                .putExtra("doctorName",doctorName)
-                .putExtra("prescriptionDate",addDate));
-                *//*convertView.startActivity(new Intent(DoctorAdapter.this,DoctorDetailsActivity.class)
-                        .putExtra("doctorObj",doctors));*//*
+                parent.getContext().startActivity(new Intent(parent.getContext(),ShowPrescriptionActivity.class)
+                .putExtra("MH_id",rowId)
+                .putExtra("prescriptionImage",image));
             }
-        });*/
+        });
         return convertView;
     }
 }
