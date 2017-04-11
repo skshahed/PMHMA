@@ -135,8 +135,19 @@ public class DoctorDatabaseSource {
     public ArrayList<MedicalHistory> getDoctorPrescription(){
         ArrayList<MedicalHistory> medicalHistories = new ArrayList<>();
         this.open();
+       // int doctorId = medicalHistory.getDoctorId();
+        int doctorId = 2;
+        /*Cursor cursor = sqLiteDatabase.rawQuery("select "+DoctorDatabaseHelper.DOC_MH_ID+" from "+DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE+
+                        " where " +DoctorDatabaseHelper.DOC_MH_ID+" = "+1 ,null);*/
 
-        Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,null,null,null,null,null,null);
+        //String[] colum = {DoctorDatabaseHelper.DOC_MH_ID ,DoctorDatabaseHelper.MH_ID, DoctorDatabaseHelper.MH_IMAGE_NAME,DoctorDatabaseHelper.MH_DATE };
+        Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.MEDICAL_HISTORY_TABLE,
+                null,
+                DoctorDatabaseHelper.DOC_MH_ID+"="+doctorId,
+                null,
+                null,
+                null,
+                null);
         cursor.moveToFirst();
         if (cursor != null && cursor.getCount() > 0){
             for (int i = 0;i < cursor.getCount();i++){
@@ -145,7 +156,6 @@ public class DoctorDatabaseSource {
                 //String docDetails = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_DETAILS));
                 String prescribeDate = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_DATE));
                 String imagePath = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.MH_IMAGE_NAME));
-                // String docEmail = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_EMAIL));
 
                 medicalHistory = new MedicalHistory(id,prescribeDate,imagePath);
                 medicalHistories.add(medicalHistory);

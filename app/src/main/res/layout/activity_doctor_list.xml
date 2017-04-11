@@ -14,6 +14,15 @@
         android:dividerHeight="1dp"
         android:divider="#111976"
         />
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No Record Found"
+        android:textSize="30sp"
+        android:textColor="#111976"
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

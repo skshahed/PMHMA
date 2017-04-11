@@ -26,14 +26,6 @@ public class MedicalHistory {
         this.doctorId = doctorId;
     }
 
-    public int getDoctorId() {
-        return doctorId;
-    }
-
-    public MedicalHistory(String addDate, String imageName) {
-        this.addDate = addDate;
-        this.imageName = imageName;
-    }
 
     public MedicalHistory(int mHistoryId, String addDate, String imageName) {
         this.mHistoryId = mHistoryId;
@@ -41,8 +33,12 @@ public class MedicalHistory {
         this.imageName = imageName;
     }
 
-    public MedicalHistory(String addDate) {
-        this.addDate = addDate;
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
     }
 
     public int getmHistoryId() {

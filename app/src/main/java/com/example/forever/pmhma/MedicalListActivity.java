@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,8 +25,9 @@ public class MedicalListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medical_list);
-
+        TextView emptyText = (TextView) findViewById(R.id.emptyText);
         mListView = (ListView) findViewById(R.id.medicalList);
+        mListView.setEmptyView(emptyText);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
         medicalHistories = doctorDatabaseSource.getAllHistory();
 

@@ -17,6 +17,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
     private TextView docNameTV, docSpecialistTV, docApointTV, docPhoneTV, docEmailTV;
     private Doctor doctor;
+    private MedicalHistory medicalHistory;
 
     //for get intent variable
     private String docName,docSpecialist,docApoint,doctorPhone,doctorEmail;
@@ -101,6 +102,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     }
 
     public void viewPrescription(View view) {
+       // medicalHistory.setDoctorId(rowId);
+        //doctorDatabaseSource.getDoctorPrescription(rowId);
         startActivity(new Intent(DoctorDetailsActivity.this,MedicalListActivity.class));
     }
 

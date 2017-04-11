@@ -24,7 +24,7 @@
     <EditText
         android:id="@+id/signUpEmail"
         style="@style/loginEditText"
-        android:inputType="textEmailAddress"
+        android:inputType="textWebEmailAddress"
         android:hint="Enter your Email"
         />
     <EditText

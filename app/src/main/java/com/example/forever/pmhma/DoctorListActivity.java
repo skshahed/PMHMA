@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class DoctorListActivity extends AppCompatActivity {
@@ -23,7 +25,9 @@ public class DoctorListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_list);
 
+        TextView emptyText = (TextView) findViewById(R.id.empty);
         mListView = (ListView) findViewById(R.id.doctorList);
+        mListView.setEmptyView(emptyText);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
         doctors = doctorDatabaseSource.getAllDoctor();
 
