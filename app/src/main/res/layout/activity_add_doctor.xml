@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.example.forever.pmhma.MainActivity"
+    android:background="#fff3a1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Doctor"
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif"/>
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/doctor"/>
+    <EditText
+        android:id="@+id/doctorName"
+        style="@style/addDocEditText"
+        android:hint="Enter Doctor name"
+        />
+
+    <EditText
+        android:id="@+id/doctorDetails"
+        style="@style/addDocEditText"
+        android:hint="Enter Doctor Details"
+        />
+
+    <!--<EditText
+        android:id="@+id/doctorAppoinment"
+        style="@style/addDocEditText"
+        android:hint="Enter Appoinment"
+        />-->
+
+
+    <EditText
+        android:id="@+id/doctorPhone"
+        style="@style/addDocEditText"
+        android:hint="Enter Phone Number"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/doctorEmail"
+        style="@style/addDocEditText"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"/>
+    <Button
+        android:id="@+id/doctorAppoinment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Set date"
+        android:onClick="showDate"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#c6e69b"
+        android:text="Add Doctor"
+        android:onClick="addDoctor"/>
+
+</LinearLayout>

@@ -15,12 +15,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Doctor"
+                android:text="Welcome To Main Activity"
                 android:textColor="#000"
                 android:textSize="24sp"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"/>
-            <ImageView
+
+            <!--<ImageView
                 android:layout_width="140dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
@@ -38,11 +39,12 @@
                 android:hint="Enter Doctor Details"
                 />
 
-            <EditText
+            <Button
                 android:id="@+id/doctorAppoinment"
-                style="@style/addDocEditText"
-                android:hint="Enter Appoinment"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Set date"
+                android:onClick="showDate"/>
 
 
             <EditText
@@ -58,11 +60,12 @@
                 android:inputType="textEmailAddress"/>
 
             <Button
+                android:id="@+id/btnAdd"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:background="#c6e69b"
                 android:text="Add Doctor"
-                android:onClick="addDoctor"/>
+                android:onClick="addDoctor"/>-->
 
 </LinearLayout>

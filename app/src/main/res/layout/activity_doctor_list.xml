@@ -4,21 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f5f198"
     tools:context="com.example.forever.pmhma.DoctorListActivity">
 
     <ListView
         android:id="@+id/doctorList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:divider="#111976"
+        />
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No Record Found"
+        android:textSize="30sp"
+        android:textColor="#111976"
         />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
         android:src="@drawable/float_plus"
         app:fabSize="normal"
-        app:layout_anchor="@id/doctorList"
         app:layout_anchorGravity="bottom|right|end"
         android:onClick="goAddDoctor"/>
 </android.support.design.widget.CoordinatorLayout>

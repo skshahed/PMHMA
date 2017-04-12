@@ -31,11 +31,13 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String MEDICAL_HISTORY_TABLE = "history_table";
     public static final String MH_ID = "mh_id";
-    public static final String DOC_MH_ID = "doc_id";
-    public static final String MH_DATE = "apnmt_date";
+    public static final String DOC_MH_ID = "mh_doc_id";
+    public static final String MH_IMAGE_NAME = "image_name";
+    public static final String MH_DATE = "mh_apnmt_date";
     public static final String CREATE_HISTORY_TABLE = "create table " +MEDICAL_HISTORY_TABLE+"("+
             MH_ID+" integer primary key, "+
             DOC_MH_ID+" integer, "+
+            MH_IMAGE_NAME+" text, "+
             MH_DATE+" text);";
 
     public DoctorDatabaseHelper(Context context) {
@@ -51,9 +53,19 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exits"+CREATE_DOCTOR_TABLE);
-        db.execSQL("drop table if exits"+CREATE_HISTORY_TABLE);
+        db.execSQL("drop table if exits"+DOCTOR_INFO_TABLE);
+        db.execSQL("drop table if exits"+MEDICAL_HISTORY_TABLE);
         onCreate(db);
 
+    }
+    public void clearDatabase(){
+
+        SQLiteDatabase db = this.getWritableDatabase(); //get database
+        //db.execSQL("DELETE FROM "+ DOCTOR_INFO_TABLE+""); //delete all rows in a table
+        //db.execSQL("drop table if exits"+DOCTOR_INFO_TABLE);
+        //db.execSQL("drop table if exits"+MEDICAL_HISTORY_TABLE);
+        db.delete(DOCTOR_INFO_TABLE,null,null);
+        db.delete(MEDICAL_HISTORY_TABLE,null,null);
+        db.close();
     }
 }

@@ -24,7 +24,7 @@
     <EditText
         android:id="@+id/signUpEmail"
         style="@style/loginEditText"
-        android:inputType="textEmailAddress"
+        android:inputType="textWebEmailAddress"
         android:hint="Enter your Email"
         />
     <EditText
@@ -40,19 +40,5 @@
         android:text="Sign UP"
         android:onClick="saveUser"
         />
-    <Button
-        android:id="@+id/loginBtn"
-        style="@style/loginBtn"
-        android:text="Show Me"
-        android:onClick="showUser"
-        />
-    <TextView
-        android:id="@+id/showMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/showPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>

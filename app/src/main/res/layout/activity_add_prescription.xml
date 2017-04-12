@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:gravity="center"
+    android:background="#f5f198"
+    tools:context="com.example.forever.pmhma.AddPrescription">
+
+    <TextView
+        android:id="@+id/add_presTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Add Prescriptions"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/doctorNameET"
+        android:hint="Add Doctor Name"
+        style="@style/addDocEditText"
+
+        />
+    <TextView
+        android:id="@+id/doctorDeatilsET"
+        style="@style/addDocEditText"
+        android:hint="Add Doctor Details"
+
+        />
+
+    <TextView
+        android:id="@+id/showImgePath"
+        style="@style/addDocEditText"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:maxLines="3"
+        android:hint="Show image path"
+
+        />
+
+   <!-- <EditText
+        android:id="@+id/docId"
+        style="@style/addDocEditText"
+        android:hint="Show  ID"
+
+        />-->
+
+    <ImageButton
+        android:id="@+id/presImageButton"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/camera"
+        android:layout_gravity="center"
+        />
+
+    <Button
+        android:id="@+id/prestionDate"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:onClick="showDate"/>
+
+    <Button
+        android:id="@+id/addMedicalBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Add Medical History"
+        android:onClick="addMedicalHistory" />
+
+
+
+</LinearLayout>

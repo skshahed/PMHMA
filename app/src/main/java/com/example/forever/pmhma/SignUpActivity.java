@@ -16,8 +16,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText nameET;
     private EditText emailET;
     private EditText passwordET;
-    private Button showUserBtn;
-    private TextView showEmailTV, showPassTV;
+    //private Button showUserBtn;
     private DoctorDatabaseHelper doctorDatabaseHelper;
     private SQLiteDatabase sqLiteDatabase;
    // private TextView showEmailTV,showPasTV;
@@ -32,11 +31,12 @@ public class SignUpActivity extends AppCompatActivity {
         nameET = (EditText) findViewById(R.id.signUpName);
         emailET = (EditText) findViewById(R.id.signUpEmail);
         passwordET = (EditText) findViewById(R.id.signUpPassword);
-        showUserBtn = (Button) findViewById(R.id.signUpBtn);
-        showEmailTV = (TextView) findViewById(R.id.showMail);
-        showPassTV = (TextView) findViewById(R.id.showPass);
+        //showUserBtn = (Button) findViewById(R.id.signUpBtn);
+       // showEmailTV = (TextView) findViewById(R.id.showMail);
+       // showPassTV = (TextView) findViewById(R.id.showPass);
 
         userAuthentication = new UserAuthentication(this);
+        doctorDatabaseHelper = new DoctorDatabaseHelper(this);
 
         userPreference = getSharedPreferences("User Authenticate",MODE_PRIVATE);
         editor = userPreference.edit();
@@ -64,7 +64,8 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
                // String dbName = doctorDatabaseHelper.getDatabaseName();
                 //doctorDatabaseHelper.onCreate(sqLiteDatabase);
-
+                //doctorDatabaseHelper.onUpgrade(sqLiteDatabase db,1,1);
+                doctorDatabaseHelper.clearDatabase();
                 startActivity(new Intent(this, DoctorListActivity.class));
             } else {
                 Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
@@ -73,9 +74,4 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public void showUser(View view) {
-        showEmailTV.setText(userAuthentication.getEmail());
-        showPassTV.setText(userAuthentication.getPassword());
-
-    }
 }

@@ -3,9 +3,14 @@ package com.example.forever.pmhma;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class DoctorListActivity extends AppCompatActivity {
@@ -20,7 +25,9 @@ public class DoctorListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_list);
 
+        TextView emptyText = (TextView) findViewById(R.id.empty);
         mListView = (ListView) findViewById(R.id.doctorList);
+        mListView.setEmptyView(emptyText);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
         doctors = doctorDatabaseSource.getAllDoctor();
 
@@ -36,7 +43,23 @@ public class DoctorListActivity extends AppCompatActivity {
         });*/
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.only_logout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent loginscreen=new Intent(this,LoginActivity.class);
+        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(loginscreen);
+        this.finish();
+        return super.onOptionsItemSelected(item);
+    }
+
     public void goAddDoctor(View view) {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(DoctorListActivity.this,AddDoctorActivity.class));
     }
 }

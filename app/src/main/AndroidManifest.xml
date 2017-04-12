@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.forever.pmhma">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".DoctorListActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -19,7 +25,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".DoctorDetailsActivity"></activity>
+        <activity android:name=".DoctorDetailsActivity" />
+        <activity android:name=".AddPrescription"
+             />
+        <activity android:name=".MedicalListActivity" />
+        <activity android:name=".AddDoctorActivity"
+            android:noHistory="true" />
+        <activity android:name=".ShowPrescriptionActivity"></activity>
     </application>
 
 </manifest>
